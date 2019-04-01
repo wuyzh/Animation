@@ -5,8 +5,9 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.wuyazhou.learn.animation.ViewAnimation.ViewAnimationPagerView;
+import com.wuyazhou.learn.animation.animator.AnimatorPagerView;
 import com.wuyazhou.learn.logview.LogShowView;
-import com.wuyazhou.pagerview.ModelPagerView;
 import com.wuyazhou.pagerview.ViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -34,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = findViewById(R.id.view_pager);
         mViewPagerAdapter = new ViewPagerAdapter(mViews,mViewTitle, this);
         mViewPager.setAdapter(mViewPagerAdapter);
-        addViewPagerView("标题一",new ModelPagerView(this));
-        addViewPagerView("标题二",new ModelPagerView(this));
+        addViewPagerView("View动画",new ViewAnimationPagerView(this));
+        addViewPagerView("属性动画",new AnimatorPagerView(this));
         mViewPagerAdapter.notifyDataSetChanged();
+        mViewPager.setCurrentItem(1);
     }
 
     private void addViewPagerView(String title, View view){
